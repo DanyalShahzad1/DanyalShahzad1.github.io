@@ -883,9 +883,14 @@
 
     /* ── SCROLL REVEAL ── */
     .reveal {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.hidden {
       opacity: 0;
       transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
     .reveal.visible {
@@ -1424,18 +1429,30 @@
       });
     });
 
-    // Scroll reveal — triggers every time element enters viewport
+    // Scroll reveal — content always visible by default, JS adds animation
     const revealEls = document.querySelectorAll('.reveal');
 
-    const showAll = () => revealEls.forEach(el => el.classList.add('visible'));
-
     if ('IntersectionObserver' in window) {
+      // Hide elements initially so we can animate them in
+      revealEls.forEach(el => el.classList.add('hidden'));
+
       const io = new IntersectionObserver((entries) => {
         entries.forEach(e => {
           if (e.isIntersecting) {
             e.target.classList.add('visible');
+            e.target.classList.remove('hidden');
           } else {
             e.target.classList.remove('visible');
+            e.target.classList.add('hidden');
           }
         });
-      }, { threshold: 0
+      }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
+
+      revealEls.forEach(el => io.observe(el));
+    }
+    // No JS support = content stays visible (default in CSS)
+
+  </script>
+
+</body>
+</html>
