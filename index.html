@@ -790,6 +790,79 @@
 
     .clink:hover .clink-arrow { transform: translateX(4px); color: var(--gold); }
 
+    /* ── BEYOND ── */
+    #beyond { border-top: 1px solid rgba(201,168,76,0.12); }
+
+    .beyond-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .beyond-card {
+      border: 1px solid rgba(201,168,76,0.18);
+      padding: 2.2rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .beyond-card:hover {
+      border-color: rgba(201,168,76,0.5);
+      transform: translateY(-4px);
+    }
+
+    .beyond-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .beyond-card:hover::before { transform: scaleX(1); }
+
+    .beyond-icon {
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .beyond-category {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+
+    .beyond-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      line-height: 1.2;
+    }
+
+    .beyond-sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .beyond-desc {
+      font-size: 0.85rem;
+      color: var(--faint);
+      line-height: 1.75;
+    }
+
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid rgba(201,168,76,0.12);
@@ -810,8 +883,8 @@
 
     /* ── SCROLL REVEAL ── */
     .reveal {
-      opacity: 0;
-      transform: translateY(30px);
+      opacity: 1;
+      transform: translateY(0);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
@@ -850,7 +923,7 @@
       .section-wrap { padding: 5rem 1.5rem; }
       .section-header { flex-direction: column; gap: 0.5rem; }
       .section-num { font-size: 4rem; }
-      .about-layout, .contact-layout, .edu-cards { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-layout, .contact-layout, .edu-cards, .beyond-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .project-row { grid-template-columns: 60px 1fr; }
       .project-right { grid-column: 2; }
       .exp-entry { grid-template-columns: 130px 1px 1fr; gap: 0 1.5rem; }
@@ -871,9 +944,10 @@
         <li><a href="#experience">Work</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#education">Education</a></li>
+        <li><a href="#beyond">Beyond</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <a href="resume.pdf" target="_blank" class="nav-resume">Résumé ↗</a>
+      <a href="Muhammad_Danyal_Shahzad_Resume.pdf" target="_blank" class="nav-resume">Résumé ↗</a>
     </div>
   </nav>
 
@@ -886,8 +960,8 @@
         <em>Shahzad</em>
       </h1>
       <p class="hero-desc">
-        Finance professional with deep experience in FP&A, equity valuation, and financial analytics.
-        I build models, dashboards, and data-driven insights that turn complexity into clear decisions.
+        FP&amp;A · Equity Valuation · Financial Analytics.<br>
+        I turn complex data into decisions that matter.
       </p>
       <div class="hero-cta">
         <a href="#projects" class="btn-gold">View Projects →</a>
@@ -961,22 +1035,16 @@
       <div class="about-layout reveal">
         <div class="about-body">
           <p>
-            I'm a Master of Finance student at McMaster University's DeGroote School of Business
-            (<strong>GPA 3.7/4.0</strong>), building on an Honours BCom in Finance. My graduate coursework spans
-            financial econometrics, Python-based financial modelling, advanced corporate finance,
-            and M&A — always with a focus on applying theory to real decisions.
+            MFin student at McMaster's DeGroote School of Business (<strong>GPA 3.7</strong>),
+            building on an Honours BCom in Finance. Coursework spans econometrics,
+            Python modelling, corporate finance, and M&A.
           </p>
           <p>
-            At <strong>Martinrea International</strong>, I built multi-scenario Excel forecasting models
-            supporting a <strong>$20M business unit</strong>, produced executive Power BI dashboards tracking
-            margins and working capital, and cut cross-functional reporting lead times by <strong>15%</strong>.
-            At Investrade in Bahrain, I improved reporting efficiency by 20% through automation
-            across CRM and SAP systems.
+            14 months at <strong>Martinrea International</strong> — built forecasting models for a <strong>$20M</strong> business unit,
+            delivered executive Power BI dashboards, and cut reporting lead time by <strong>15%</strong>.
           </p>
           <p>
-            I'm actively pursuing roles in <strong>FP&A, investment analysis,</strong> and
-            <strong>financial analytics</strong> where I can contribute both modelling depth and a
-            data-first mindset.
+            Seeking roles in <strong>FP&amp;A, investment analysis,</strong> and <strong>financial analytics.</strong>
           </p>
         </div>
         <div>
@@ -1024,10 +1092,10 @@
             <div class="exp-role">Financial Analyst Intern</div>
             <div class="exp-org">Martinrea International</div>
             <ul class="exp-points">
-              <li>Built and maintained multi-scenario Excel forecasting models for a $20M automotive business unit, directly supporting annual budget planning and variance tracking for senior leadership.</li>
-              <li>Performed monthly variance analysis across revenue and cost centres; identified key operational cost drivers that informed pricing strategy and margin improvement decisions.</li>
-              <li>Analysed large CRM and ERP datasets using Excel and Power BI, producing executive-level dashboards tracking margins, working capital, and KPIs — reducing manual reporting time significantly.</li>
-              <li>Streamlined cross-functional reporting workflows between operations and finance, cutting reporting lead time by 15%.</li>
+              <li>Built multi-scenario Excel forecasting models for a <strong>$20M</strong> automotive business unit — budget planning and variance tracking for senior leadership.</li>
+              <li>Monthly variance analysis across revenue and cost centres; surfaced cost drivers that shaped pricing and margin strategy.</li>
+              <li>Automated KPI dashboards in Power BI tracking margins, working capital, and operational performance.</li>
+              <li>Streamlined cross-functional reporting — cut lead time by <strong>15%</strong>.</li>
             </ul>
           </div>
         </div>
@@ -1042,9 +1110,25 @@
             <div class="exp-role">Administrative Assistant</div>
             <div class="exp-org">Investrade Company</div>
             <ul class="exp-points">
-              <li>Supported finance and risk teams by documenting and optimising 10+ internal workflows across CRM and SAP systems.</li>
-              <li>Reconciled and validated financial data across CRM, Excel, and SAP; assisted in portfolio monitoring and performance tracking.</li>
-              <li>Improved reporting efficiency by 20% through automation and enhanced data validation processes.</li>
+              <li>Documented and optimised 10+ internal workflows across CRM and SAP for finance and risk teams.</li>
+              <li>Reconciled financial data across CRM, Excel, and SAP; supported portfolio monitoring.</li>
+              <li>Improved reporting efficiency by <strong>20%</strong> through automation and data validation.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-entry reveal">
+          <div class="exp-time">
+            <strong>Aug 2025 – Present</strong>
+            Mississauga, ON
+          </div>
+          <div class="exp-line"></div>
+          <div class="exp-body">
+            <div class="exp-role">Part-Time Sales Associate</div>
+            <div class="exp-org">Moores Clothing for Men</div>
+            <ul class="exp-points">
+              <li>Reconciled daily POS transactions ($1.5K–$3K per shift) — accurate cash balancing and internal controls.</li>
+              <li>End-of-day close, deposit preparation, and transaction verification.</li>
             </ul>
           </div>
         </div>
@@ -1082,11 +1166,9 @@
           </div>
           <div class="project-right">
             <p class="project-desc">
-              Conducted a full equity valuation of Lundin Mining Corporation (TSX: LUN) using three
-              methodologies: DCF, Dividend Discount Model, and Comparable Company Analysis. Built
-              integrated five-year financial forecasts with commodity price assumptions and sensitivity
-              analyses using Refinitiv market data. Presented a Buy/Hold/Sell recommendation to a
-              panel of faculty and finance industry professionals, defending valuation assumptions under Q&A.
+              Full equity valuation of Lundin Mining (TSX: LUN) using DCF, DDM, and Comparable Company Analysis.
+              Five-year integrated forecasts with commodity price assumptions and sensitivity analysis via Refinitiv.
+              Presented Buy/Hold/Sell recommendation to a faculty and industry panel.
             </p>
             <div class="project-result">→ Derived intrinsic value range with full sensitivity analysis across commodity price and discount rate scenarios</div>
           </div>
@@ -1106,10 +1188,9 @@
           </div>
           <div class="project-right">
             <p class="project-desc">
-              Designed and built executive-level Power BI dashboards during a 14-month internship at
-              Martinrea International. Consolidated data from CRM and ERP systems to track margins,
-              working capital, and operational KPIs across a $20M automotive business unit —
-              replacing fragmented manual reporting with a single, real-time view for senior leadership.
+              Built executive Power BI dashboards at Martinrea, consolidating CRM and ERP data to track
+              margins, working capital, and KPIs across a $20M business unit.
+              Replaced fragmented manual reporting with a single real-time view.
             </p>
             <div class="project-result">→ Cut cross-functional reporting lead time by 15%; enabled faster, data-driven executive decisions</div>
           </div>
@@ -1130,10 +1211,9 @@
           </div>
           <div class="project-right">
             <p class="project-desc">
-              Graduate financial modelling course building real-world finance models in Python and Excel.
-              Projects span company valuations (DCF, multiples), efficient frontier construction,
-              CAPM/APT asset pricing models, fixed income and equity portfolio management,
-              and Value at Risk (VaR) estimation — pulling live financial data via market APIs.
+              Graduate course building real-world models in Python and Excel — company valuations (DCF, multiples),
+              efficient frontier, CAPM/APT asset pricing, portfolio management, and VaR estimation
+              using live market data via APIs.
             </p>
             <div class="project-result">→ End-to-end Python models for valuation, portfolio optimisation, and quantitative risk measurement</div>
           </div>
@@ -1153,12 +1233,33 @@
           </div>
           <div class="project-right">
             <p class="project-desc">
-              Graduate econometrics course applying statistical modelling to financial and investment data.
-              Group project covers real-world financial analysis using multivariate regression,
-              time-series models (ARMA, ARCH), VaR estimation, bootstrap simulation,
-              and maximum likelihood estimation — applied to live economic and market datasets.
+              Applied econometrics to real financial data — multivariate regression, ARMA/ARCH time-series models,
+              VaR estimation, and bootstrap simulation.
+              Group project presented to the class using live market datasets.
             </p>
             <div class="project-result">→ Applied econometric models to financial forecasting and hypothesis testing on real market data</div>
+          </div>
+        </div>
+
+        <div class="project-row reveal">
+          <div class="project-count">05</div>
+          <div class="project-left">
+            <div class="project-kicker">Dec 2024 – Apr 2025 · Business Consulting</div>
+            <div class="project-name">Hamilton Public Library — Consulting Engagement</div>
+            <div class="project-tags-row">
+              <span class="ptag">Strategy</span>
+              <span class="ptag">Market Research</span>
+              <span class="ptag">Business Analytics</span>
+              <span class="ptag">Stakeholder Mgmt</span>
+            </div>
+          </div>
+          <div class="project-right">
+            <p class="project-desc">
+              Part of a student consulting team solving a real-world business challenge for the Hamilton Public Library.
+              Conducted market research and benchmarking, assessed organisational pain points, and co-developed
+              data-driven retention strategies.
+            </p>
+            <div class="project-result">→ Delivered final recommendations and presentation to the client and course evaluators</div>
           </div>
         </div>
 
@@ -1187,8 +1288,7 @@
           <div class="edu-gpa">3.7</div>
           <div class="edu-gpa-label">GPA out of 4.0</div>
           <div class="edu-detail">
-            Courses: Financial Econometrics, Financial Modelling (Python & Excel),
-            Advanced Corporate Finance & Theory, M&A / Investment Banking simulation (FINSIMCO)
+            Financial Econometrics · Financial Modelling (Python &amp; Excel) · Corporate Finance · M&amp;A / IB (FINSIMCO)
           </div>
         </div>
 
@@ -1199,10 +1299,46 @@
           <div class="edu-gpa">3.5</div>
           <div class="edu-gpa-label">GPA out of 4.0</div>
           <div class="edu-detail">
-            DeGroote Finance & Investment Council (DFIC): organised finance workshops,
-            stock pitch sessions, and represented McMaster at national case competitions.
-            Developed applied skills in valuation and financial analysis.
+            DeGroote Finance &amp; Investment Council (DFIC) · National case competitions · Stock pitch sessions
           </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-rule"></div>
+
+  <!-- BEYOND FINANCE -->
+  <section id="beyond">
+    <div class="section-wrap">
+      <div class="section-header reveal">
+        <div class="section-num">05</div>
+        <div class="section-title-group">
+          <div class="section-label-text">Beyond Finance</div>
+          <h2 class="section-h2">More than just<br><em>the numbers.</em></h2>
+        </div>
+      </div>
+      <div class="beyond-grid reveal">
+
+        <div class="beyond-card">
+          <span class="beyond-icon">⚽</span>
+          <div class="beyond-category">Athletics</div>
+          <div class="beyond-title">Semi-Professional Footballer</div>
+          <div class="beyond-sub">North Mississauga SC · Ontario Premier League · 2023–Present</div>
+          <p class="beyond-desc">
+            Ontario Premier League — balancing elite sport with a full-time graduate degree. Discipline, composure under pressure, team performance.
+          </p>
+        </div>
+
+        <div class="beyond-card">
+          <span class="beyond-icon">📊</span>
+          <div class="beyond-category">Leadership · Club</div>
+          <div class="beyond-title">DeGroote Finance & Investment Council</div>
+          <div class="beyond-sub">DFIC · McMaster University · Sep 2021–Apr 2023</div>
+          <p class="beyond-desc">
+            Organised finance workshops, stock pitch sessions, and case competition prep. Represented McMaster at national competitions.
+          </p>
         </div>
 
       </div>
@@ -1218,8 +1354,7 @@
         <div>
           <h2 class="contact-big">Let's<br><em>connect.</em></h2>
           <p class="contact-sub">
-            Actively seeking full-time roles in FP&A, investment analysis, and financial analytics.
-            If you think there's a fit — or just want to talk finance — reach out.
+            Open to full-time roles in FP&amp;A, investment analysis, and financial analytics. Let's talk.
           </p>
           <div class="contact-location">Mississauga / Toronto, ON — Open to roles across Canada</div>
         </div>
@@ -1239,7 +1374,7 @@
             <span class="clink-label">(647) 287-2132</span>
             <span class="clink-arrow">→</span>
           </a>
-          <a href="resume.pdf" target="_blank" class="clink">
+          <a href="Muhammad_Danyal_Shahzad_Resume.pdf" target="_blank" class="clink">
             <span class="clink-icon">↓</span>
             <span class="clink-label">Download Résumé (PDF)</span>
             <span class="clink-arrow">→</span>
@@ -1291,16 +1426,7 @@
 
     // Scroll reveal
     const revealEls = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), 80);
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.08 });
-
-    revealEls.forEach(el => io.observe(el));
+    revealEls.forEach(el => el.classList.add('visible'));
   </script>
 
 </body>
