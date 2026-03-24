@@ -883,9 +883,9 @@
 
     /* ── SCROLL REVEAL ── */
     .reveal {
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
     .reveal.visible {
@@ -947,7 +947,7 @@
         <li><a href="#beyond">Beyond</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <a href="Muhammad_Danyal_Shahzad_Resume.pdf" target="_blank" class="nav-resume">Résumé ↗</a>
+      <a href="Danyal_Shahzad_Resume.pdf" target="_blank" class="nav-resume">Résumé ↗</a>
     </div>
   </nav>
 
@@ -1374,7 +1374,7 @@
             <span class="clink-label">(647) 287-2132</span>
             <span class="clink-arrow">→</span>
           </a>
-          <a href="Muhammad_Danyal_Shahzad_Resume.pdf" target="_blank" class="clink">
+          <a href="Danyal_Shahzad_Resume.pdf" target="_blank" class="clink">
             <span class="clink-icon">↓</span>
             <span class="clink-label">Download Résumé (PDF)</span>
             <span class="clink-arrow">→</span>
@@ -1424,9 +1424,29 @@
       });
     });
 
-    // Scroll reveal
+    // Scroll reveal — triggers every time element enters viewport
     const revealEls = document.querySelectorAll('.reveal');
-    revealEls.forEach(el => el.classList.add('visible'));
+
+    const showAll = () => revealEls.forEach(el => el.classList.add('visible'));
+
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+          } else {
+            e.target.classList.remove('visible');
+          }
+        });
+      }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
+
+      revealEls.forEach(el => io.observe(el));
+
+      // Safety net — show everything after 1.2s regardless
+      setTimeout(showAll, 1200);
+    } else {
+      showAll();
+    }
   </script>
 
 </body>
