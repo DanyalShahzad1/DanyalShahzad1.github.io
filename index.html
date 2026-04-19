@@ -31,7 +31,6 @@
       cursor: none;
     }
 
-    /* ── CUSTOM CURSOR ── */
     .cursor {
       position: fixed;
       width: 8px; height: 8px;
@@ -56,7 +55,6 @@
 
     body:hover .cursor { opacity: 1; }
 
-    /* ── NOISE OVERLAY ── */
     body::after {
       content: '';
       position: fixed;
@@ -66,7 +64,6 @@
       z-index: 1000;
     }
 
-    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -123,7 +120,6 @@
 
     .nav-resume:hover { background: var(--gold-light); }
 
-    /* ── HERO ── */
     .hero {
       min-height: 100vh;
       display: grid;
@@ -234,7 +230,6 @@
 
     .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
 
-    /* Hero Right — big decorative typography */
     .hero-right {
       display: flex;
       flex-direction: column;
@@ -295,7 +290,6 @@
       color: var(--mid);
     }
 
-    /* ── MARQUEE ── */
     .marquee-wrap {
       width: 100%;
       overflow: hidden;
@@ -335,7 +329,6 @@
       to { transform: translateX(-50%); }
     }
 
-    /* ── SECTION SHARED ── */
     .section-wrap {
       max-width: 1200px;
       margin: 0 auto;
@@ -393,7 +386,6 @@
 
     .section-h2 em { font-style: italic; color: var(--gold); }
 
-    /* ── ABOUT ── */
     #about { border-top: 1px solid rgba(201,168,76,0.12); }
 
     .about-layout {
@@ -454,7 +446,6 @@
     .skill-chip:hover::before { transform: scaleX(1); }
     .skill-chip span { position: relative; z-index: 1; }
 
-    /* ── EXPERIENCE ── */
     #experience { border-top: 1px solid rgba(201,168,76,0.12); background: rgba(201,168,76,0.02); }
 
     .exp-timeline { display: flex; flex-direction: column; }
@@ -535,7 +526,6 @@
       top: 0.15rem;
     }
 
-    /* ── PROJECTS ── */
     #projects { border-top: 1px solid rgba(201,168,76,0.12); }
 
     .projects-layout { display: flex; flex-direction: column; gap: 0; }
@@ -617,7 +607,6 @@
       letter-spacing: 0.03em;
     }
 
-    /* ── EDUCATION ── */
     #education { border-top: 1px solid rgba(201,168,76,0.12); background: rgba(201,168,76,0.02); }
 
     .edu-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
@@ -697,7 +686,6 @@
       line-height: 1.7;
     }
 
-    /* ── CONTACT ── */
     #contact { border-top: 1px solid rgba(201,168,76,0.12); }
 
     .contact-layout {
@@ -790,7 +778,6 @@
 
     .clink:hover .clink-arrow { transform: translateX(4px); color: var(--gold); }
 
-    /* ── BEYOND ── */
     #beyond { border-top: 1px solid rgba(201,168,76,0.12); }
 
     .beyond-grid {
@@ -863,7 +850,6 @@
       line-height: 1.75;
     }
 
-    /* ── FOOTER ── */
     footer {
       border-top: 1px solid rgba(201,168,76,0.12);
       padding: 2rem 3.5rem;
@@ -881,7 +867,6 @@
 
     .footer-gold { color: var(--gold); }
 
-    /* ── SCROLL REVEAL ── */
     .reveal {
       opacity: 1;
       transform: translateY(0);
@@ -898,7 +883,6 @@
       transform: translateY(0);
     }
 
-    /* ── ANIMATIONS ── */
     @keyframes slideIn {
       from { opacity: 0; transform: translateX(-20px); }
       to   { opacity: 1; transform: translateX(0); }
@@ -909,7 +893,6 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── HORIZONTAL RULE ── */
     .gold-rule {
       width: 100%;
       height: 1px;
@@ -918,7 +901,6 @@
       opacity: 0.3;
     }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       nav { padding: 1.4rem 1.5rem; }
       .nav-links { display: none; }
@@ -940,7 +922,6 @@
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
-  <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">Danyal Shahzad</a>
     <div class="nav-right">
@@ -956,7 +937,6 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-left">
       <div class="hero-eyebrow">Master of Finance · DeGroote · McMaster</div>
@@ -996,7 +976,6 @@
     </div>
   </section>
 
-  <!-- MARQUEE -->
   <div class="marquee-wrap">
     <div class="marquee-track">
       <div class="marquee-item">Financial Modelling</div>
@@ -1030,7 +1009,6 @@
     </div>
   </div>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="section-wrap">
       <div class="section-header reveal">
@@ -1078,7 +1056,6 @@
 
   <div class="gold-rule"></div>
 
-  <!-- EXPERIENCE -->
   <section id="experience">
     <div class="section-wrap">
       <div class="section-header reveal">
@@ -1115,7 +1092,7 @@
           </div>
           <div class="exp-line"></div>
           <div class="exp-body">
-            <div class="exp-role">Administrative Analyst</div>
+            <div class="exp-role">Administrative Assistant</div>
             <div class="exp-org">Investrade Company</div>
             <ul class="exp-points">
               <li>Reconciled and validated financial data across CRM, Excel, and SAP platforms; assisted in portfolio monitoring and weekly P&amp;L performance tracking for a multi-asset investment portfolio.</li>
@@ -1147,7 +1124,6 @@
 
   <div class="gold-rule"></div>
 
-  <!-- PROJECTS -->
   <section id="projects">
     <div class="section-wrap">
       <div class="section-header reveal">
@@ -1278,7 +1254,6 @@
 
   <div class="gold-rule"></div>
 
-  <!-- EDUCATION -->
   <section id="education">
     <div class="section-wrap">
       <div class="section-header reveal">
@@ -1318,7 +1293,6 @@
 
   <div class="gold-rule"></div>
 
-  <!-- BEYOND FINANCE -->
   <section id="beyond">
     <div class="section-wrap">
       <div class="section-header reveal">
@@ -1356,7 +1330,6 @@
 
   <div class="gold-rule"></div>
 
-  <!-- CONTACT -->
   <section id="contact">
     <div class="section-wrap">
       <div class="contact-layout reveal">
@@ -1404,7 +1377,6 @@
   </footer>
 
   <script>
-    // Custom cursor
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
     let mx = 0, my = 0, rx = 0, ry = 0;
@@ -1424,7 +1396,6 @@
     }
     animateRing();
 
-    // Expand ring on hoverable elements
     document.querySelectorAll('a, button, .skill-chip, .project-row').forEach(el => {
       el.addEventListener('mouseenter', () => {
         ring.style.width = '60px';
@@ -1438,7 +1409,6 @@
       });
     });
 
-    // Scroll reveal
     const revealEls = document.querySelectorAll('.reveal');
 
     if ('IntersectionObserver' in window) {
