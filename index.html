@@ -19,10 +19,8 @@
       --faint: #c8c0b0;
       --white: #faf8f4;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
-
     body {
       background: var(--ink);
       color: var(--paper);
@@ -30,7 +28,6 @@
       overflow-x: hidden;
       cursor: none;
     }
-
     .cursor {
       position: fixed;
       width: 8px; height: 8px;
@@ -41,7 +38,6 @@
       transition: transform 0.15s ease;
       mix-blend-mode: difference;
     }
-
     .cursor-ring {
       position: fixed;
       width: 36px; height: 36px;
@@ -52,9 +48,7 @@
       transition: transform 0.4s ease, width 0.3s, height 0.3s, opacity 0.3s;
       opacity: 0.6;
     }
-
     body:hover .cursor { opacity: 1; }
-
     body::after {
       content: '';
       position: fixed;
@@ -63,7 +57,6 @@
       pointer-events: none;
       z-index: 1000;
     }
-
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -74,7 +67,6 @@
       padding: 1.8rem 3.5rem;
       mix-blend-mode: difference;
     }
-
     .nav-logo {
       font-family: 'Playfair Display', serif;
       font-size: 1.1rem;
@@ -84,15 +76,12 @@
       color: var(--paper);
       text-decoration: none;
     }
-
     .nav-right {
       display: flex;
       align-items: center;
       gap: 2.5rem;
     }
-
     .nav-links { display: flex; gap: 2rem; list-style: none; }
-
     .nav-links a {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
@@ -103,9 +92,7 @@
       opacity: 0.5;
       transition: opacity 0.2s;
     }
-
     .nav-links a:hover { opacity: 1; }
-
     .nav-resume {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
@@ -117,9 +104,7 @@
       text-decoration: none;
       transition: background 0.2s;
     }
-
     .nav-resume:hover { background: var(--gold-light); }
-
     .hero {
       min-height: 100vh;
       display: grid;
@@ -127,7 +112,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .hero-left {
       display: flex;
       flex-direction: column;
@@ -137,7 +121,6 @@
       z-index: 2;
       border-right: 1px solid rgba(201,168,76,0.2);
     }
-
     .hero-eyebrow {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
@@ -151,7 +134,6 @@
       opacity: 0;
       animation: slideIn 0.8s 0.3s forwards;
     }
-
     .hero-eyebrow::before {
       content: '';
       display: block;
@@ -159,7 +141,6 @@
       height: 1px;
       background: var(--gold);
     }
-
     .hero-name {
       font-family: 'Playfair Display', serif;
       font-size: clamp(4rem, 7vw, 7.5rem);
@@ -170,13 +151,11 @@
       opacity: 0;
       animation: slideIn 0.9s 0.5s forwards;
     }
-
     .hero-name em {
       font-style: italic;
       color: var(--gold);
       display: block;
     }
-
     .hero-desc {
       font-size: 0.95rem;
       color: var(--faint);
@@ -187,14 +166,12 @@
       opacity: 0;
       animation: slideIn 0.9s 0.7s forwards;
     }
-
     .hero-cta {
       display: flex;
       gap: 1rem;
       opacity: 0;
       animation: slideIn 0.9s 0.9s forwards;
     }
-
     .btn-gold {
       display: inline-flex;
       align-items: center;
@@ -210,9 +187,7 @@
       font-weight: 400;
       transition: all 0.25s;
     }
-
     .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
-
     .btn-ghost {
       display: inline-flex;
       align-items: center;
@@ -227,9 +202,7 @@
       text-decoration: none;
       transition: all 0.25s;
     }
-
     .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
-
     .hero-right {
       display: flex;
       flex-direction: column;
@@ -239,7 +212,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .hero-big-word {
       font-family: 'Playfair Display', serif;
       font-size: clamp(6rem, 13vw, 15rem);
@@ -257,7 +229,6 @@
       pointer-events: none;
       user-select: none;
     }
-
     .hero-stats {
       position: relative;
       z-index: 2;
@@ -267,12 +238,10 @@
       opacity: 0;
       animation: fadeUp 1s 1.1s forwards;
     }
-
     .stat-item {
       border-left: 2px solid var(--gold);
       padding-left: 1.5rem;
     }
-
     .stat-num {
       font-family: 'Playfair Display', serif;
       font-size: 3rem;
@@ -281,7 +250,6 @@
       color: var(--gold);
       margin-bottom: 0.25rem;
     }
-
     .stat-label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
@@ -289,7 +257,6 @@
       text-transform: uppercase;
       color: var(--mid);
     }
-
     .marquee-wrap {
       width: 100%;
       overflow: hidden;
@@ -298,14 +265,12 @@
       padding: 1rem 0;
       background: rgba(201,168,76,0.04);
     }
-
     .marquee-track {
       display: flex;
       gap: 0;
       animation: marquee 30s linear infinite;
       white-space: nowrap;
     }
-
     .marquee-item {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
@@ -317,31 +282,26 @@
       align-items: center;
       gap: 2.5rem;
     }
-
     .marquee-item::after {
       content: '◆';
       color: var(--gold);
       font-size: 0.4rem;
     }
-
     @keyframes marquee {
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
     }
-
     .section-wrap {
       max-width: 1200px;
       margin: 0 auto;
       padding: 7rem 3.5rem;
     }
-
     .section-header {
       display: flex;
       align-items: flex-start;
       gap: 3rem;
       margin-bottom: 5rem;
     }
-
     .section-num {
       font-family: 'Playfair Display', serif;
       font-size: 6rem;
@@ -353,9 +313,7 @@
       flex-shrink: 0;
       margin-top: -1rem;
     }
-
     .section-title-group { flex: 1; }
-
     .section-label-text {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.63rem;
@@ -367,7 +325,6 @@
       align-items: center;
       gap: 0.75rem;
     }
-
     .section-label-text::before {
       content: '';
       display: block;
@@ -375,7 +332,6 @@
       height: 1px;
       background: var(--gold);
     }
-
     .section-h2 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.2rem, 4vw, 3.5rem);
@@ -383,18 +339,14 @@
       line-height: 1.1;
       letter-spacing: -0.02em;
     }
-
     .section-h2 em { font-style: italic; color: var(--gold); }
-
     #about { border-top: 1px solid rgba(201,168,76,0.12); }
-
     .about-layout {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
       gap: 5rem;
       align-items: start;
     }
-
     .about-body p {
       color: var(--faint);
       font-size: 0.95rem;
@@ -402,9 +354,7 @@
       margin-bottom: 1.2rem;
       font-weight: 400;
     }
-
     .about-body p strong { color: var(--paper); font-weight: 600; }
-
     .skills-heading {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.63rem;
@@ -413,13 +363,11 @@
       color: var(--gold);
       margin-bottom: 1.5rem;
     }
-
     .skills-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0.6rem;
     }
-
     .skill-chip {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.68rem;
@@ -431,7 +379,6 @@
       transition: all 0.25s;
       letter-spacing: 0.04em;
     }
-
     .skill-chip::before {
       content: '';
       position: absolute;
@@ -441,15 +388,11 @@
       transform-origin: left;
       transition: transform 0.3s ease;
     }
-
     .skill-chip:hover { border-color: var(--gold); color: var(--gold); }
     .skill-chip:hover::before { transform: scaleX(1); }
     .skill-chip span { position: relative; z-index: 1; }
-
     #experience { border-top: 1px solid rgba(201,168,76,0.12); background: rgba(201,168,76,0.02); }
-
     .exp-timeline { display: flex; flex-direction: column; }
-
     .exp-entry {
       display: grid;
       grid-template-columns: 200px 1px 1fr;
@@ -458,9 +401,7 @@
       border-bottom: 1px solid rgba(201,168,76,0.1);
       position: relative;
     }
-
     .exp-entry:last-child { border-bottom: none; }
-
     .exp-time {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
@@ -469,14 +410,11 @@
       padding-top: 0.3rem;
       line-height: 1.9;
     }
-
     .exp-time strong { display: block; color: var(--gold); font-size: 0.68rem; margin-bottom: 0.2rem; }
-
     .exp-line {
       background: rgba(201,168,76,0.2);
       position: relative;
     }
-
     .exp-line::before {
       content: '';
       position: absolute;
@@ -487,9 +425,7 @@
       background: var(--gold);
       border-radius: 50%;
     }
-
     .exp-body { padding-left: 0.5rem; }
-
     .exp-role {
       font-family: 'Playfair Display', serif;
       font-size: 1.5rem;
@@ -497,7 +433,6 @@
       margin-bottom: 0.2rem;
       line-height: 1.2;
     }
-
     .exp-org {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.68rem;
@@ -506,9 +441,7 @@
       text-transform: uppercase;
       margin-bottom: 1.2rem;
     }
-
     .exp-points { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-
     .exp-points li {
       font-size: 0.9rem;
       color: var(--faint);
@@ -516,7 +449,6 @@
       position: relative;
       line-height: 1.7;
     }
-
     .exp-points li::before {
       content: '→';
       position: absolute;
@@ -525,11 +457,8 @@
       font-size: 0.7rem;
       top: 0.15rem;
     }
-
     #projects { border-top: 1px solid rgba(201,168,76,0.12); }
-
     .projects-layout { display: flex; flex-direction: column; gap: 0; }
-
     .project-row {
       display: grid;
       grid-template-columns: 80px 1fr 1fr;
@@ -539,10 +468,8 @@
       position: relative;
       transition: background 0.3s;
     }
-
     .project-row:last-child { border-bottom: none; }
     .project-row:hover { background: rgba(201,168,76,0.03); }
-
     .project-count {
       font-family: 'Playfair Display', serif;
       font-size: 3.5rem;
@@ -554,9 +481,7 @@
       align-self: start;
       padding-top: 0.2rem;
     }
-
     .project-left {}
-
     .project-kicker {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.6rem;
@@ -565,7 +490,6 @@
       color: var(--gold);
       margin-bottom: 0.7rem;
     }
-
     .project-name {
       font-family: 'Playfair Display', serif;
       font-size: 1.7rem;
@@ -574,9 +498,7 @@
       letter-spacing: -0.01em;
       margin-bottom: 1rem;
     }
-
     .project-tags-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.2rem; }
-
     .ptag {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.58rem;
@@ -586,16 +508,13 @@
       color: var(--mid);
       text-transform: uppercase;
     }
-
     .project-right { display: flex; flex-direction: column; justify-content: space-between; padding-top: 2rem; }
-
     .project-desc {
       font-size: 0.88rem;
       color: var(--faint);
       line-height: 1.85;
       margin-bottom: 1.5rem;
     }
-
     .project-result {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.7rem;
@@ -606,11 +525,8 @@
       line-height: 1.6;
       letter-spacing: 0.03em;
     }
-
     #education { border-top: 1px solid rgba(201,168,76,0.12); background: rgba(201,168,76,0.02); }
-
     .edu-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-
     .edu-card {
       border: 1px solid rgba(201,168,76,0.2);
       padding: 2.5rem;
@@ -618,7 +534,6 @@
       overflow: hidden;
       transition: border-color 0.3s;
     }
-
     .edu-card::after {
       content: '';
       position: absolute;
@@ -629,10 +544,8 @@
       transform-origin: left;
       transition: transform 0.4s ease;
     }
-
     .edu-card:hover { border-color: rgba(201,168,76,0.5); }
     .edu-card:hover::after { transform: scaleX(1); }
-
     .edu-period {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.63rem;
@@ -641,7 +554,6 @@
       text-transform: uppercase;
       margin-bottom: 1.2rem;
     }
-
     .edu-deg {
       font-family: 'Playfair Display', serif;
       font-size: 1.3rem;
@@ -649,7 +561,6 @@
       line-height: 1.2;
       margin-bottom: 0.4rem;
     }
-
     .edu-school {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.63rem;
@@ -658,7 +569,6 @@
       text-transform: uppercase;
       margin-bottom: 1rem;
     }
-
     .edu-gpa {
       display: inline-block;
       font-family: 'Playfair Display', serif;
@@ -669,7 +579,6 @@
       line-height: 1;
       margin-bottom: 0.5rem;
     }
-
     .edu-gpa-label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.6rem;
@@ -679,22 +588,106 @@
       display: block;
       margin-bottom: 1rem;
     }
-
     .edu-detail {
       font-size: 0.82rem;
       color: var(--mid);
       line-height: 1.7;
     }
 
-    #contact { border-top: 1px solid rgba(201,168,76,0.12); }
+    /* ── CERTIFICATIONS ── */
+    #certifications { border-top: 1px solid rgba(201,168,76,0.12); }
+    .cert-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .cert-card {
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+      text-decoration: none;
+      color: var(--paper);
+      display: block;
+      cursor: pointer;
+    }
+    .cert-card:hover {
+      border-color: rgba(201,168,76,0.6);
+      transform: translateY(-4px);
+    }
+    .cert-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .cert-card:hover::before { transform: scaleX(1); }
+    .cert-issuer {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .cert-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+    }
+    .cert-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--mid);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .cert-desc {
+      font-size: 0.85rem;
+      color: var(--faint);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+    .cert-id {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--mid);
+      letter-spacing: 0.06em;
+      padding: 0.6rem 0.9rem;
+      border: 1px solid rgba(201,168,76,0.15);
+      background: rgba(201,168,76,0.05);
+      margin-bottom: 1.2rem;
+      word-break: break-all;
+    }
+    .cert-id span { color: var(--gold); }
+    .cert-cta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: gap 0.2s;
+    }
+    .cert-card:hover .cert-cta { gap: 0.9rem; }
 
+    #contact { border-top: 1px solid rgba(201,168,76,0.12); }
     .contact-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 6rem;
       align-items: center;
     }
-
     .contact-big {
       font-family: 'Playfair Display', serif;
       font-size: clamp(3rem, 5vw, 5.5rem);
@@ -703,11 +696,8 @@
       letter-spacing: -0.03em;
       margin-bottom: 1.5rem;
     }
-
     .contact-big em { font-style: italic; color: var(--gold); }
-
     .contact-sub { font-size: 0.9rem; color: var(--faint); line-height: 1.9; margin-bottom: 2rem; }
-
     .contact-location {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
@@ -718,15 +708,12 @@
       align-items: center;
       gap: 0.6rem;
     }
-
     .contact-location::before {
       content: '◆';
       color: var(--gold);
       font-size: 0.4rem;
     }
-
     .contact-links-col { display: flex; flex-direction: column; gap: 0; }
-
     .clink {
       display: flex;
       align-items: center;
@@ -739,7 +726,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .clink::before {
       content: '';
       position: absolute;
@@ -750,10 +736,8 @@
       transform: scaleY(0);
       transition: transform 0.25s ease;
     }
-
     .clink:hover { padding-left: 1.2rem; color: var(--gold); }
     .clink:hover::before { transform: scaleY(1); }
-
     .clink-icon {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.7rem;
@@ -762,30 +746,24 @@
       flex-shrink: 0;
       letter-spacing: 0;
     }
-
     .clink-label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.75rem;
       letter-spacing: 0.06em;
       flex: 1;
     }
-
     .clink-arrow {
       font-size: 0.8rem;
       color: var(--mid);
       transition: transform 0.2s, color 0.2s;
     }
-
     .clink:hover .clink-arrow { transform: translateX(4px); color: var(--gold); }
-
     #beyond { border-top: 1px solid rgba(201,168,76,0.12); }
-
     .beyond-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
     }
-
     .beyond-card {
       border: 1px solid rgba(201,168,76,0.18);
       padding: 2.2rem;
@@ -793,12 +771,10 @@
       overflow: hidden;
       transition: border-color 0.3s, transform 0.3s;
     }
-
     .beyond-card:hover {
       border-color: rgba(201,168,76,0.5);
       transform: translateY(-4px);
     }
-
     .beyond-card::before {
       content: '';
       position: absolute;
@@ -809,15 +785,12 @@
       transform-origin: left;
       transition: transform 0.4s ease;
     }
-
     .beyond-card:hover::before { transform: scaleX(1); }
-
     .beyond-icon {
       font-size: 2rem;
       margin-bottom: 1.2rem;
       display: block;
     }
-
     .beyond-category {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.6rem;
@@ -826,7 +799,6 @@
       color: var(--gold);
       margin-bottom: 0.6rem;
     }
-
     .beyond-title {
       font-family: 'Playfair Display', serif;
       font-size: 1.25rem;
@@ -834,7 +806,6 @@
       margin-bottom: 0.3rem;
       line-height: 1.2;
     }
-
     .beyond-sub {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
@@ -843,13 +814,11 @@
       text-transform: uppercase;
       margin-bottom: 1rem;
     }
-
     .beyond-desc {
       font-size: 0.85rem;
       color: var(--faint);
       line-height: 1.75;
     }
-
     footer {
       border-top: 1px solid rgba(201,168,76,0.12);
       padding: 2rem 3.5rem;
@@ -857,42 +826,34 @@
       justify-content: space-between;
       align-items: center;
     }
-
     footer p {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.62rem;
       letter-spacing: 0.12em;
       color: var(--mid);
     }
-
     .footer-gold { color: var(--gold); }
-
     .reveal {
       opacity: 1;
       transform: translateY(0);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-
     .reveal.hidden {
       opacity: 0;
       transform: translateY(24px);
     }
-
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
     }
-
     @keyframes slideIn {
       from { opacity: 0; transform: translateX(-20px); }
       to   { opacity: 1; transform: translateX(0); }
     }
-
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
     .gold-rule {
       width: 100%;
       height: 1px;
@@ -900,7 +861,6 @@
       margin: 0;
       opacity: 0.3;
     }
-
     @media (max-width: 900px) {
       nav { padding: 1.4rem 1.5rem; }
       .nav-links { display: none; }
@@ -910,7 +870,7 @@
       .section-wrap { padding: 5rem 1.5rem; }
       .section-header { flex-direction: column; gap: 0.5rem; }
       .section-num { font-size: 4rem; }
-      .about-layout, .contact-layout, .edu-cards, .beyond-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-layout, .contact-layout, .edu-cards, .beyond-grid, .cert-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .project-row { grid-template-columns: 60px 1fr; }
       .project-right { grid-column: 2; }
       .exp-entry { grid-template-columns: 130px 1px 1fr; gap: 0 1.5rem; }
@@ -918,10 +878,8 @@
   </style>
 </head>
 <body>
-
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
-
   <nav>
     <a href="#" class="nav-logo">Danyal Shahzad</a>
     <div class="nav-right">
@@ -930,6 +888,7 @@
         <li><a href="#experience">Work</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#education">Education</a></li>
+        <li><a href="#certifications">Certs</a></li>
         <li><a href="#beyond">Beyond</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -1066,7 +1025,6 @@
         </div>
       </div>
       <div class="exp-timeline">
-
         <div class="exp-entry reveal">
           <div class="exp-time">
             <strong>Jun 2023 – Aug 2024</strong>
@@ -1084,7 +1042,6 @@
             </ul>
           </div>
         </div>
-
         <div class="exp-entry reveal">
           <div class="exp-time">
             <strong>Jun 2022 – Sep 2022</strong>
@@ -1101,7 +1058,6 @@
             </ul>
           </div>
         </div>
-
         <div class="exp-entry reveal">
           <div class="exp-time">
             <strong>Aug 2025 – Present</strong>
@@ -1117,7 +1073,6 @@
             </ul>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -1134,7 +1089,6 @@
         </div>
       </div>
       <div class="projects-layout">
-
         <div class="project-row reveal">
           <div class="project-count">01</div>
           <div class="project-left">
@@ -1158,7 +1112,6 @@
             <div class="project-result">→ Derived intrinsic value range with full sensitivity analysis across commodity price and discount rate scenarios</div>
           </div>
         </div>
-
         <div class="project-row reveal">
           <div class="project-count">02</div>
           <div class="project-left">
@@ -1180,7 +1133,6 @@
             <div class="project-result">→ Reduced monthly reporting cycle time by 15%; enabled faster, data-driven executive decisions</div>
           </div>
         </div>
-
         <div class="project-row reveal">
           <div class="project-count">03</div>
           <div class="project-left">
@@ -1203,7 +1155,6 @@
             <div class="project-result">→ End-to-end Python models for valuation, portfolio optimisation, and quantitative risk measurement</div>
           </div>
         </div>
-
         <div class="project-row reveal">
           <div class="project-count">04</div>
           <div class="project-left">
@@ -1225,7 +1176,6 @@
             <div class="project-result">→ Applied econometric models to financial forecasting and hypothesis testing on real market data</div>
           </div>
         </div>
-
         <div class="project-row reveal">
           <div class="project-count">05</div>
           <div class="project-left">
@@ -1247,7 +1197,6 @@
             <div class="project-result">→ Delivered final recommendations and presentation to the client and course evaluators</div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -1264,7 +1213,6 @@
         </div>
       </div>
       <div class="edu-cards reveal">
-
         <div class="edu-card">
           <div class="edu-period">Sep 2025 – Present</div>
           <div class="edu-deg">Master of Finance</div>
@@ -1275,7 +1223,6 @@
             Financial Econometrics · Financial Modelling (Python &amp; Excel) · Corporate Finance · M&amp;A / IB (FINSIMCO)
           </div>
         </div>
-
         <div class="edu-card">
           <div class="edu-period">Sep 2020 – Jun 2025</div>
           <div class="edu-deg">Honours Bachelor of Commerce — Finance Specialization</div>
@@ -1286,6 +1233,48 @@
             DeGroote Finance &amp; Investment Council (DFIC) · National case competitions · Stock pitch sessions
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-rule"></div>
+
+  <!-- ── CERTIFICATIONS ── -->
+  <section id="certifications">
+    <div class="section-wrap">
+      <div class="section-header reveal">
+        <div class="section-num">05</div>
+        <div class="section-title-group">
+          <div class="section-label-text">Certifications</div>
+          <h2 class="section-h2">Verified<br><em>credentials.</em></h2>
+        </div>
+      </div>
+      <div class="cert-grid reveal">
+
+        <!-- Bloomberg BMC — links to live verification URL -->
+        <a href="https://portal.bloombergforeducation.com/certificates/bUHVVQfELhX2FUDky8SHbhhu" target="_blank" class="cert-card">
+          <div class="cert-issuer">Bloomberg for Education</div>
+          <div class="cert-name">Bloomberg Market Concepts (BMC)</div>
+          <div class="cert-date">Completed · April 23, 2026</div>
+          <p class="cert-desc">
+            Covers economic indicators, currencies, fixed income, and equities using the Bloomberg Terminal — the industry-standard platform for financial professionals.
+          </p>
+          <div class="cert-id">
+            <span>Certificate ID:</span> bUHVVQfELhX2FUDky8SHbhhu
+          </div>
+          <div class="cert-cta">Verify Certificate →</div>
+        </a>
+
+        <!-- Finsimco — links to image uploaded in your repo -->
+        <a href="certificates/finsimco-ibs.png" target="_blank" class="cert-card">
+          <div class="cert-issuer">Finsimco · Financial Services Simulator</div>
+          <div class="cert-name">Investment Banking Simulation</div>
+          <div class="cert-date">Completed · April 2026</div>
+          <p class="cert-desc">
+            Rigorous simulation covering M&amp;A, Debt Capital Markets, and Equity Capital Markets — replicating the deal-flow and analytical demands of a front-office IB role.
+          </p>
+          <div class="cert-cta">View Certificate →</div>
+        </a>
 
       </div>
     </div>
@@ -1296,14 +1285,13 @@
   <section id="beyond">
     <div class="section-wrap">
       <div class="section-header reveal">
-        <div class="section-num">05</div>
+        <div class="section-num">06</div>
         <div class="section-title-group">
           <div class="section-label-text">Beyond Finance</div>
           <h2 class="section-h2">More than just<br><em>the numbers.</em></h2>
         </div>
       </div>
       <div class="beyond-grid reveal">
-
         <div class="beyond-card">
           <span class="beyond-icon">⚽</span>
           <div class="beyond-category">Athletics</div>
@@ -1313,7 +1301,6 @@
             Compete at a semi-professional level while maintaining a 3.5+ GPA and professional commitments. Discipline, time management, and composure under pressure.
           </p>
         </div>
-
         <div class="beyond-card">
           <span class="beyond-icon">📊</span>
           <div class="beyond-category">Leadership · Club</div>
@@ -1323,7 +1310,6 @@
             Organised stock pitch sessions, valuation workshops, and case competitions. Represented McMaster at national finance competitions, developing applied skills in equity research and financial modelling.
           </p>
         </div>
-
       </div>
     </div>
   </section>
@@ -1380,13 +1366,11 @@
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
     let mx = 0, my = 0, rx = 0, ry = 0;
-
     document.addEventListener('mousemove', e => {
       mx = e.clientX; my = e.clientY;
       cursor.style.left = mx - 4 + 'px';
       cursor.style.top  = my - 4 + 'px';
     });
-
     function animateRing() {
       rx += (mx - rx - 18) * 0.12;
       ry += (my - ry - 18) * 0.12;
@@ -1395,8 +1379,7 @@
       requestAnimationFrame(animateRing);
     }
     animateRing();
-
-    document.querySelectorAll('a, button, .skill-chip, .project-row').forEach(el => {
+    document.querySelectorAll('a, button, .skill-chip, .project-row, .cert-card').forEach(el => {
       el.addEventListener('mouseenter', () => {
         ring.style.width = '60px';
         ring.style.height = '60px';
@@ -1408,12 +1391,9 @@
         ring.style.opacity = '0.6';
       });
     });
-
     const revealEls = document.querySelectorAll('.reveal');
-
     if ('IntersectionObserver' in window) {
       revealEls.forEach(el => el.classList.add('hidden'));
-
       const io = new IntersectionObserver((entries) => {
         entries.forEach(e => {
           if (e.isIntersecting) {
@@ -1425,10 +1405,8 @@
           }
         });
       }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
-
       revealEls.forEach(el => io.observe(el));
     }
   </script>
-
 </body>
 </html>
