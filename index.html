@@ -249,9 +249,9 @@
       .wheel-container{width:100%!important;height:100%;transition:none;}
       .wheel-container.panel-open{display:none;}
       #wheel-svg{width:92vw!important;height:92vw!important;max-height:85vh;filter:drop-shadow(0 0 30px rgba(0,212,255,0.15));}
-      .wheel-panel{position:fixed;inset:0;z-index:300;background:var(--navy);padding:0 0 2rem 0;width:100%!important;transform:translateY(40px);border-left:none;border-top:1px solid var(--line);overflow-y:auto;}
+      .wheel-panel{position:fixed;inset:0;z-index:300;background:var(--navy);padding:0;width:100%!important;transform:translateY(40px);border-left:none;border-top:1px solid var(--line);overflow-y:auto;display:flex;flex-direction:column;}
       .wheel-panel.open{transform:translateY(0);}
-      .panel-close{position:sticky;top:0;left:0;right:0;width:100%;text-align:center;padding:0.9rem;font-size:0.7rem;background:var(--navy2);border:none;border-bottom:1px solid var(--cyan);color:var(--cyan);margin-bottom:1.5rem;}
+      .panel-close{position:fixed;top:0;left:0;right:0;width:100%;text-align:center;padding:1rem;font-size:0.7rem;background:rgba(2,8,24,0.97);border:none;border-bottom:1px solid var(--cyan);color:var(--cyan);z-index:400;}
       .wheel-scroll-tip{font-size:0.62rem;bottom:2rem;}
       .p-exp-header{flex-direction:column;gap:0.3rem;}
       .p-beyond{flex-direction:column;gap:1rem;}
@@ -327,7 +327,7 @@
     </div>
     <div class="wheel-panel" id="wheelPanel">
       <button class="panel-close" id="panelClose">✕ Close</button>
-      <div id="panelContent" style="padding: 0 1.5rem 2rem;"></div>
+      <div id="panelContent" style="padding: 4rem 1.5rem 3rem;"></div>
     </div>
   </div>
 </div>
