@@ -290,14 +290,67 @@
 
     @media (max-width: 900px) {
       nav { padding: 1.2rem 1.5rem; }
-      .hero { padding: 7rem 1.5rem 3rem; }
-      .hero-inner { grid-template-columns: 1fr; }
+      .nav-logo { font-size: 1.1rem; }
+
+      /* Hero */
+      .hero { padding: 6rem 1.5rem 2.5rem; }
+      .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
       .hero-right { display: none; }
-      .wheel-stage { padding: 0 1.5rem; }
-      #wheel-svg { width: min(300px, 85vw) !important; height: min(300px, 85vw) !important; }
-      .wheel-container.panel-open { width: 0; overflow: hidden; }
-      .wheel-panel { padding: 5rem 1.5rem 2rem; }
-      footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; }
+      .hero-name { font-size: clamp(2.8rem, 12vw, 4.5rem); }
+      .hero-desc { font-size: 0.9rem; margin-bottom: 2rem; }
+
+      /* Wheel section — full screen */
+      #wheel-section { height: 100vh; }
+      .wheel-stage { padding: 0; flex-direction: column; }
+
+      /* Wheel fills screen width on mobile */
+      .wheel-container {
+        width: 100% !important;
+        height: 100%;
+        transition: none;
+      }
+      .wheel-container.panel-open {
+        display: none;
+      }
+
+      #wheel-svg {
+        width: 92vw !important;
+        height: 92vw !important;
+        max-height: 85vh;
+      }
+
+      /* Panel goes full screen on mobile */
+      .wheel-panel {
+        position: fixed;
+        inset: 0;
+        z-index: 300;
+        background: var(--navy);
+        padding: 5rem 1.5rem 2rem;
+        width: 100% !important;
+        transform: translateY(40px);
+        border-left: none;
+        border-top: 1px solid var(--line);
+      }
+      .wheel-panel.open {
+        transform: translateY(0);
+      }
+      .panel-close {
+        top: 1.2rem;
+        right: 1.5rem;
+        position: fixed;
+      }
+
+      /* Scroll tip bigger on mobile */
+      .wheel-scroll-tip {
+        font-size: 0.65rem;
+        bottom: 2rem;
+      }
+
+      /* Panel content sizing */
+      .p-exp-header { flex-direction: column; gap: 0.3rem; }
+      .p-proj-grid, .p-edu-grid, .p-cert-grid, .p-beyond-grid { gap: 1rem; }
+
+      footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
     }
   </style>
 </head>
@@ -479,6 +532,7 @@ function buildWheel() {
       if (!isActive) path.setAttribute('fill','rgba(4,15,42,0.9)');
     });
     path.addEventListener('click', () => openSection(sec.id));
+    path.addEventListener('touchend', (e) => { e.preventDefault(); openSection(sec.id); });
     g.appendChild(path);
 
     // Divider lines
@@ -498,6 +552,7 @@ function buildWheel() {
     labelG.setAttribute('id', `label-${sec.id}`);
     labelG.style.cursor = 'pointer';
     labelG.addEventListener('click', () => openSection(sec.id));
+    labelG.addEventListener('touchend', (e) => { e.preventDefault(); openSection(sec.id); });
 
     const icon = document.createElementNS('http://www.w3.org/2000/svg','text');
     icon.setAttribute('text-anchor','middle'); icon.setAttribute('dominant-baseline','middle');
@@ -556,29 +611,90 @@ function applyWheelRotation(animate) {
 
 buildWheel();
 
-// ── HOVER + SCROLL TO SPIN ──
+// ── DETECT MOBILE ──
+const isMobile = () => window.innerWidth <= 900;
+
+// ── HOVER + SCROLL TO SPIN (desktop) ──
 let targetAngle = 0;
 let currentAngle = 0;
 let isHovering = false;
 
 const wheelSVG = document.getElementById('wheel-svg');
+const scrollTipEl = document.getElementById('scrollTip');
 
+// Update tip text based on device
+function updateTip() {
+  scrollTipEl.textContent = isMobile()
+    ? 'drag to spin · tap a section'
+    : 'hover + scroll to spin · click a section';
+}
+updateTip();
+window.addEventListener('resize', updateTip);
+
+// Desktop: hover enable
 wheelSVG.addEventListener('mouseenter', () => {
+  if (isMobile()) return;
   isHovering = true;
-  document.getElementById('scrollTip').style.opacity = '0';
+  scrollTipEl.style.opacity = '0';
 });
 wheelSVG.addEventListener('mouseleave', () => {
   isHovering = false;
 });
 
+// Desktop: scroll to spin
 window.addEventListener('wheel', (e) => {
-  if (!isHovering) return;
+  if (isMobile() || !isHovering) return;
   e.preventDefault();
   targetAngle += e.deltaY * 0.003;
 }, { passive: false });
 
-// Smooth wheel animation
+// ── TOUCH DRAG TO SPIN (mobile) ──
+let lastTouchAngle = null;
+let touchSpinSpeed = 0;
+let isTouching = false;
+
+function getTouchAngle(touch) {
+  const rect = wheelSVG.getBoundingClientRect();
+  const cx = rect.left + rect.width / 2;
+  const cy = rect.top + rect.height / 2;
+  return Math.atan2(touch.clientY - cy, touch.clientX - cx);
+}
+
+wheelSVG.addEventListener('touchstart', (e) => {
+  if (!isMobile()) return;
+  isTouching = true;
+  lastTouchAngle = getTouchAngle(e.touches[0]);
+  touchSpinSpeed = 0;
+  scrollTipEl.style.opacity = '0';
+}, { passive: true });
+
+wheelSVG.addEventListener('touchmove', (e) => {
+  if (!isMobile() || !isTouching) return;
+  e.preventDefault();
+  const angle = getTouchAngle(e.touches[0]);
+  if (lastTouchAngle !== null) {
+    let delta = angle - lastTouchAngle;
+    if (delta > Math.PI) delta -= 2 * Math.PI;
+    if (delta < -Math.PI) delta += 2 * Math.PI;
+    touchSpinSpeed = delta;
+    targetAngle += delta * 1.8;
+  }
+  lastTouchAngle = angle;
+}, { passive: false });
+
+wheelSVG.addEventListener('touchend', () => {
+  isTouching = false;
+  lastTouchAngle = null;
+});
+
+// Smooth wheel animation with touch inertia
 function wheelTick() {
+  // Apply touch inertia after finger lift
+  if (!isTouching && isMobile()) {
+    touchSpinSpeed *= 0.92;
+    targetAngle += touchSpinSpeed;
+  }
+
   currentAngle += (targetAngle - currentAngle) * 0.1;
   wheelAngle = currentAngle;
 
