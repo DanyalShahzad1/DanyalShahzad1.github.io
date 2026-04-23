@@ -325,8 +325,8 @@
       </div>
       <div class="wheel-scroll-tip" id="scrollTip">hover + scroll to spin · click a section</div>
     </div>
+    <button class="panel-close" id="panelClose" style="display:none;">✕ Close</button>
     <div class="wheel-panel" id="wheelPanel">
-      <button class="panel-close" id="panelClose">✕ Close</button>
       <div id="panelContent" style="padding: 4rem 1.5rem 3rem;"></div>
     </div>
   </div>
@@ -855,12 +855,14 @@ function openSection(id){
   document.getElementById('panelContent').innerHTML=PANEL_CONTENT[id]||'';
   document.getElementById('wheelPanel').classList.add('open');
   document.getElementById('wheelContainer').classList.add('panel-open');
+  document.getElementById('panelClose').style.display='block';
   buildWheel();
 }
 document.getElementById('panelClose').addEventListener('click',()=>{
   activeSection=null;
   document.getElementById('wheelPanel').classList.remove('open');
   document.getElementById('wheelContainer').classList.remove('panel-open');
+  document.getElementById('panelClose').style.display='none';
   buildWheel();
 });
 </script>
