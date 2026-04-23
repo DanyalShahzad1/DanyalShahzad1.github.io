@@ -335,9 +335,17 @@
         transform: translateY(0);
       }
       .panel-close {
-        top: 1.2rem;
+        top: auto;
+        bottom: 1.5rem;
         right: 1.5rem;
+        left: 1.5rem;
         position: fixed;
+        text-align: center;
+        padding: 0.9rem;
+        font-size: 0.7rem;
+        background: var(--navy2);
+        border: 1px solid var(--cyan);
+        color: var(--cyan);
       }
 
       /* Scroll tip bigger on mobile */
@@ -633,7 +641,6 @@ window.addEventListener('resize', updateTip);
 
 // Desktop: hover enable
 wheelSVG.addEventListener('mouseenter', () => {
-  if (isMobile()) return;
   isHovering = true;
   scrollTipEl.style.opacity = '0';
 });
@@ -643,7 +650,7 @@ wheelSVG.addEventListener('mouseleave', () => {
 
 // Desktop: scroll to spin
 window.addEventListener('wheel', (e) => {
-  if (isMobile() || !isHovering) return;
+  if (!isHovering) return;
   e.preventDefault();
   targetAngle += e.deltaY * 0.003;
 }, { passive: false });
